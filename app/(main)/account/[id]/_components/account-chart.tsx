@@ -15,6 +15,16 @@ import {
   ResponsiveContainer,
   Rectangle,
 } from "recharts";
+type Transaction = {
+  date: string | Date;
+  amount: number;
+  type: "INCOME" | "EXPENSE";
+};
+
+type AccountChartProps = {
+  transactions: Transaction[];
+};
+
 const DATE_RANGES = {
   "7D": { label: "Last 7 Days", days: 7 },
   "1M": { label: "Last Month", days: 30 },
@@ -22,7 +32,7 @@ const DATE_RANGES = {
   "6M": { label: "Last 6 Months", days: 180 },
   ALL: { label: "All Time", days: null },
 };
-const AccountChart = ({transactions}) => {
+const AccountChart = ({ transactions }: AccountChartProps) => {
    const [dateRange, setDateRange] = useState("1M");
 
   const filteredData = useMemo(() => {
