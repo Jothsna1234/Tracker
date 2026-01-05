@@ -60,12 +60,10 @@
 
 // export default nextConfig;
 
-import type { NextConfig } from "next";
-
-const nextConfig: NextConfig = {
+/** @type {import('next').NextConfig} */
+const nextConfig = {
   reactStrictMode: true,
 
-  // ✅ FORCE DEPLOY EVEN IF ERRORS EXIST
   typescript: {
     ignoreBuildErrors: true,
   },
@@ -90,4 +88,4 @@ const nextConfig: NextConfig = {
   },
 };
 
-export default nextConfig;
+module.exports = nextConfig;
